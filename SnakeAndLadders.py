@@ -7,6 +7,7 @@ class SnakesAndLadders:
         self.intializePositionTable()
         self.addSnake(14, 7)
         self.playerPosition = 0
+        self.turns = 0
 
     def intializePositionTable(self):
         for i in range(1,101):
@@ -37,6 +38,8 @@ class SnakesAndLadders:
         self.playerPosition = self.positionTable[self.playerPosition]['fallback']
 
     def gameOver(self):
-        if not self.checkIfInBounds():
+        if not self.checkIfInBounds() or self.turns > 10:
             return True
         return False
+
+

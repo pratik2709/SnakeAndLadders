@@ -38,10 +38,15 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.assertTrue(self.snake.checkIfInBounds())
         self.snake.playerPosition = 0
 
-    def test_game_over(self):
+    def test_game_over_by_bounds(self):
         self.snake.playerPosition = 101
         self.assertTrue(self.snake.gameOver())
         self.snake.playerPosition = 0
+
+    def test_game_over_by_turns(self):
+        self.snake.turns = 11
+        self.assertTrue(self.snake.gameOver())
+        self.snake.turns = 0
 
     def test_when_square_contains_snake(self):
         self.snake.playerPosition = 14
