@@ -6,6 +6,7 @@ class SnakesAndLadders:
         self.positionTable = dict()
         self.intializePositionTable()
         self.addSnake(14, 7)
+        self.playerPosition = 0
 
     def intializePositionTable(self):
         for i in range(1,101):
@@ -22,3 +23,7 @@ class SnakesAndLadders:
 
     def generateEvenRandomNumber(self):
         return random.randrange(2,7,2)
+
+    def movePlayer(self):
+        random_number = self.generateRandomNumber()
+        self.playerPosition += random_number

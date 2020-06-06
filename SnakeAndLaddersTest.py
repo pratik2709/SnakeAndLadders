@@ -21,3 +21,14 @@ class SnakesAndLaddersTest(unittest.TestCase):
     def test_even_random_number(self):
         num = self.snake.generateEvenRandomNumber()
         self.assertTrue(num % 2 == 0)
+
+    def test_even_random_number_range(self):
+        num = self.snake.generateEvenRandomNumber()
+        self.assertTrue(2 <= num <= 6)
+
+    def test_player_movement(self):
+        # assuming testing only first move of the player
+        initial = self.snake.playerPosition
+        self.snake.movePlayer()
+        self.assertNotEqual(initial, self.snake.playerPosition)
+        self.assertTrue(initial < self.snake.playerPosition)
