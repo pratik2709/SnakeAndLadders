@@ -19,3 +19,6 @@ class SnakesAndLadders:
 
     def generateRandomNumber(self):
         return random.randint(1,6)
+
+    def generateEvenRandomNumber(self):
+        return random.randrange(2,7,2)

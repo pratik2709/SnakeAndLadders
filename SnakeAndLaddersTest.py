@@ -17,3 +17,7 @@ class SnakesAndLaddersTest(unittest.TestCase):
     def test_random_number_range(self):
         num = self.snake.generateRandomNumber()
         self.assertTrue(1 <= num <= 6)
+
+    def test_even_random_number(self):
+        num = self.snake.generateEvenRandomNumber()
+        self.assertTrue(num % 2 == 0)
