@@ -35,3 +35,8 @@ class SnakesAndLadders:
 
     def handleCaseWhenSquareContainsSnake(self):
         self.playerPosition = self.positionTable[self.playerPosition]['fallback']
+
+    def gameOver(self):
+        if not self.checkIfInBounds():
+            return True
+        return False
