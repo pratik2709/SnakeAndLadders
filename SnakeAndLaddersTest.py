@@ -37,3 +37,8 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.snake.playerPosition = 101
         self.assertFalse(self.snake.checkIfInBounds())
         self.snake.playerPosition = 0
+
+    def test_when_square_contains_snake(self):
+        self.snake.playerPosition = 14
+        self.snake.handleCaseWhenSquareContainsSnake()
+        self.assertEqual(self.snake.playerPosition, 7)

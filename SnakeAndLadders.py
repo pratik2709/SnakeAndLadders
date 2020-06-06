@@ -32,3 +32,6 @@ class SnakesAndLadders:
         if self.playerPosition > 100:
             return False
         return True
+
+    def handleCaseWhenSquareContainsSnake(self):
+        self.playerPosition = self.positionTable[self.playerPosition]['fallback']
