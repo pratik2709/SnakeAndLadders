@@ -32,3 +32,8 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.snake.movePlayer()
         self.assertNotEqual(initial, self.snake.playerPosition)
         self.assertTrue(initial < self.snake.playerPosition)
+
+    def test_player_in_bounds(self):
+        self.snake.playerPosition = 101
+        self.assertFalse(self.snake.checkIfInBounds())
+        self.snake.playerPosition = 0

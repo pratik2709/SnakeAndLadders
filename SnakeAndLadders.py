@@ -27,3 +27,8 @@ class SnakesAndLadders:
     def movePlayer(self):
         random_number = self.generateRandomNumber()
         self.playerPosition += random_number
+
+    def checkIfInBounds(self):
+        if self.playerPosition > 100:
+            return False
+        return True
