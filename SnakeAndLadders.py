@@ -27,6 +27,7 @@ class SnakesAndLadders:
 
     def movePlayer(self):
         random_number = self.generateRandomNumber()
+        print("DIE ROLLED IS:" + str(random_number))
         self.playerPosition += random_number
 
     def checkIfInBounds(self):
@@ -47,11 +48,30 @@ class SnakesAndLadders:
             return True
         return False
 
-    # def playGame(self):
-    #     self.movePlayer()
-    #     if self.gameOver:
-    #         print("GAME OVER")
-    #     else:
-    #         if
+    def playGame(self):
+        self.turns += 1
+        print("INITIAL PLAYER POSITION:" + str(self.playerPosition))
+        self.movePlayer()
+        if self.gameOver():
+            print("GAME OVER")
+            return False
+        else:
+            if self.checkSquareContainsSnake():
+                print("SNAKE FOUND ON:" + str(self.playerPosition))
+                print("MOVING TO:" + str(self.positionTable[self.playerPosition]['fallback']))
+                self.handleCaseWhenSquareContainsSnake()
+            else:
+                print("MOVING TO:" + str(self.playerPosition))
+            return True
 
 
+def main():
+    s = SnakesAndLadders()
+    print("STARTING GAME...")
+    while True:
+        num = input("Press P key to roll die::")
+        if num == "p":
+            if not s.playGame():
+                break
+
+main()
