@@ -34,6 +34,11 @@ class SnakesAndLadders:
             return False
         return True
 
+    def checkSquareContainsSnake(self):
+        if self.positionTable[self.playerPosition]['fallback'] is not None:
+            return True
+        return False
+
     def handleCaseWhenSquareContainsSnake(self):
         self.playerPosition = self.positionTable[self.playerPosition]['fallback']
 
@@ -41,5 +46,12 @@ class SnakesAndLadders:
         if not self.checkIfInBounds() or self.turns > 10:
             return True
         return False
+
+    # def playGame(self):
+    #     self.movePlayer()
+    #     if self.gameOver:
+    #         print("GAME OVER")
+    #     else:
+    #         if
 
 
