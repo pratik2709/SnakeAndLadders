@@ -1,3 +1,6 @@
+import random
+
+
 class SnakesAndLadders:
     def __init__(self):
         self.positionTable = dict()
@@ -13,3 +16,6 @@ class SnakesAndLadders:
 
     def addSnake(self, current_position, slip_position):
         self.positionTable[current_position]['fallback'] = slip_position
+
+    def generateRandomNumber(self):
+        return random.randint(1,6)

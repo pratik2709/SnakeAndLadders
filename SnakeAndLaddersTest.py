@@ -14,3 +14,6 @@ class SnakesAndLaddersTest(unittest.TestCase):
     def test_fallback_position_table(self):
         self.assertEqual(self.snake.positionTable[14]['fallback'],7)
 
+    def test_random_number_range(self):
+        num = self.snake.generateRandomNumber()
+        self.assertTrue(1 <= num <= 6)
