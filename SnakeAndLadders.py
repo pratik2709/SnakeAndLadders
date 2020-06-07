@@ -65,13 +65,3 @@ class SnakesAndLadders:
             return True
 
 
-def main():
-    s = SnakesAndLadders()
-    print("STARTING GAME...")
-    while True:
-        num = input("Press P key to roll die::")
-        if num == "p":
-            if not s.playGame():
-                break
-
-main()
