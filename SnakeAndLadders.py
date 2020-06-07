@@ -46,4 +46,4 @@ class SnakesAndLadders:
         return False
 
     def handleVisualBoard(self):
-        self.snakeAndLadderBoard.showPlayerPositionOnBoard(self.player.playerPosition)
+        self.snakeAndLadderBoard.visual.showPlayerPositionOnBoard(self.player.playerPosition)
