@@ -28,7 +28,7 @@ class SnakesAndLadders:
 
     def handleNormalGame(self):
         if self.snakeAndLadderBoard.checkSquareContainsSnake(self.player.playerPosition):
-            print("SNAKE FOUND ON:" + str(self.player.playerPosition))
+            print("ALERT!! SNAKE FOUND ON:" + str(self.player.playerPosition))
             print(
                 "MOVING TO:"
                 + str(self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition)))
@@ -41,6 +41,7 @@ class SnakesAndLadders:
         return True
 
     def handleGameOver(self):
+        print("MOVING TO:" + str(self.player.playerPosition))
         print("GAME OVER")
         self.handleVisualBoard()
         return False
