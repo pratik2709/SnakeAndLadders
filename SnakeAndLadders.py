@@ -1,6 +1,7 @@
 import random
 
 from Dice import Dice
+from Player import Player
 
 
 class SnakesAndLadders:
@@ -8,7 +9,7 @@ class SnakesAndLadders:
         self.positionTable = dict()
         self.intializePositionTable()
         self.addSnake(14, 7)
-        self.playerPosition = 0
+        self.player = Player()
         self.turns = 0
         self.dice = None
 
@@ -22,45 +23,34 @@ class SnakesAndLadders:
     def addSnake(self, current_position, slip_position):
         self.positionTable[current_position]['fallback'] = slip_position
 
-
-    def movePlayer(self):
-        number = self.dice.generateDieRoll()
-        print("DIE ROLLED IS:" + str(number))
-        self.playerPosition += number
-
-    def checkIfInBounds(self):
-        if self.playerPosition > 100:
-            return False
-        return True
-
     def checkSquareContainsSnake(self):
-        if self.positionTable[self.playerPosition]['fallback'] is not None:
+        if self.positionTable[self.player.playerPosition]['fallback'] is not None:
             return True
         return False
 
     def handleCaseWhenSquareContainsSnake(self):
-        self.playerPosition = self.positionTable[self.playerPosition]['fallback']
+        self.player.playerPosition = self.positionTable[self.player.playerPosition]['fallback']
 
     def gameOver(self):
-        if not self.checkIfInBounds() or self.turns > 10:
+        if not self.player.checkIfInBounds() or self.turns > 10:
             return True
         return False
 
     def playGame(self, fairness):
         self.dice = Dice(fairness)
         self.turns += 1
-        print("INITIAL PLAYER POSITION:" + str(self.playerPosition))
-        self.movePlayer()
+        print("INITIAL PLAYER POSITION:" + str(self.player.playerPosition))
+        self.player.movePlayer(self.dice.generateDieRoll())
         if self.gameOver():
             print("GAME OVER")
             return False
         else:
             if self.checkSquareContainsSnake():
-                print("SNAKE FOUND ON:" + str(self.playerPosition))
-                print("MOVING TO:" + str(self.positionTable[self.playerPosition]['fallback']))
+                print("SNAKE FOUND ON:" + str(self.player.playerPosition))
+                print("MOVING TO:" + str(self.positionTable[self.player.playerPosition]['fallback']))
                 self.handleCaseWhenSquareContainsSnake()
             else:
-                print("MOVING TO:" + str(self.playerPosition))
+                print("MOVING TO:" + str(self.player.playerPosition))
             return True
 
 

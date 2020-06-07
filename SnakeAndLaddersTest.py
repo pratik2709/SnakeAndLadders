@@ -32,21 +32,21 @@ class SnakesAndLaddersTest(unittest.TestCase):
 
     def test_player_movement(self):
         # assuming testing only first move of the player
-        initial = self.snake.playerPosition
+        initial = self.snake.player.playerPosition
         self.snake.dice = Dice(2)
-        self.snake.movePlayer()
-        self.assertNotEqual(initial, self.snake.playerPosition)
-        self.assertTrue(initial < self.snake.playerPosition)
+        self.snake.player.movePlayer(self.snake.dice.generateDieRoll())
+        self.assertNotEqual(initial, self.snake.player.playerPosition)
+        self.assertTrue(initial < self.snake.player.playerPosition)
 
     def test_player_in_bounds(self):
-        self.snake.playerPosition = 10
-        self.assertTrue(self.snake.checkIfInBounds())
-        self.snake.playerPosition = 0
+        self.snake.player.playerPosition = 10
+        self.assertTrue(self.snake.player.checkIfInBounds())
+        self.snake.player.playerPosition = 0
 
     def test_game_over_by_bounds(self):
-        self.snake.playerPosition = 101
+        self.snake.player.playerPosition = 101
         self.assertTrue(self.snake.gameOver())
-        self.snake.playerPosition = 0
+        self.snake.player.playerPosition = 0
 
     def test_game_over_by_turns(self):
         self.snake.turns = 11
@@ -54,11 +54,11 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.snake.turns = 0
 
     def test_when_square_contains_snake(self):
-        self.snake.playerPosition = 14
+        self.snake.player.playerPosition = 14
         self.assertTrue(self.snake.checkSquareContainsSnake())
 
     def test_handle_snake_case(self):
-        self.snake.playerPosition = 14
+        self.snake.player.playerPosition = 14
         self.snake.handleCaseWhenSquareContainsSnake()
-        self.assertEqual(self.snake.playerPosition, 7)
+        self.assertEqual(self.snake.player.playerPosition, 7)
 
