@@ -1,4 +1,4 @@
-from src.SnakeAndLadders import SnakesAndLadders
+from src.SnakeAndLaddersMain import SnakesAndLadders
 
 
 class Game:

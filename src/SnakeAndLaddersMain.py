@@ -19,6 +19,7 @@ class SnakesAndLadders:
     def playGame(self, fairness=1):
         self.dice = Dice(fairness)
         self.turns += 1
+        print("TURN NUMBER:" + str(self.turns))
         print("INITIAL PLAYER POSITION:" + str(self.player.playerPosition))
         self.player.movePlayer(self.dice.generateDieRoll())
         if self.gameOver():
