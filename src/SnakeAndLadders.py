@@ -1,6 +1,6 @@
-from Dice import Dice
-from Player import Player
-from SnakeAndLadderBoard import SnakesAndLadderBoard
+from src.Dice import Dice
+from src.Player import Player
+from src.SnakeAndLadderBoard import SnakesAndLadderBoard
 
 
 class SnakesAndLadders:

@@ -1,4 +1,4 @@
-from SnakeAndLadders import SnakesAndLadders
+from src.SnakeAndLadders import SnakesAndLadders
 
 
 def main():

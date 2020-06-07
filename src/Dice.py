@@ -1,5 +1,5 @@
-from FairDice import FairDice
-from UnfairDice import UnFairDice
+from src.FairDice import FairDice
+from src.UnfairDice import UnFairDice
 
 
 class Dice:

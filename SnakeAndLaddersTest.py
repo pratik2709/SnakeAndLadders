@@ -1,7 +1,7 @@
 import unittest
 
-from Dice import Dice
-from SnakeAndLadders import SnakesAndLadders
+from src.Dice import Dice
+from src.SnakeAndLadders import SnakesAndLadders
 
 
 class SnakesAndLaddersTest(unittest.TestCase):

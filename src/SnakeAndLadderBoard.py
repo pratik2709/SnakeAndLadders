@@ -1,4 +1,4 @@
-from SnakeAndLaddersVisualBoard import SnakesAndLaddersVisualBoard
+from src.SnakeAndLaddersVisualBoard import SnakesAndLaddersVisualBoard
 
 
 class SnakesAndLadderBoard:
