@@ -14,5 +14,3 @@ def main():
                 break
 
 main()
-
-# key board press enter, escape to exit game

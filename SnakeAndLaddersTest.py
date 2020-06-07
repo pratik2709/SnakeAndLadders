@@ -10,10 +10,10 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.snake = SnakesAndLadders()
 
     def test_len_position_table(self):
-        self.assertEqual(len(self.snake.positionTable),100)
+        self.assertEqual(len(self.snake.snakeAndLadderBoard.positionTable),100)
 
     def test_fallback_position_table(self):
-        self.assertEqual(self.snake.positionTable[14]['fallback'],7)
+        self.assertEqual(self.snake.snakeAndLadderBoard.positionTable[14]['fallback'],7)
 
     def test_random_number_range(self):
         self.snake.dice = Dice()
@@ -54,11 +54,8 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.snake.turns = 0
 
     def test_when_square_contains_snake(self):
-        self.snake.player.playerPosition = 14
-        self.assertTrue(self.snake.checkSquareContainsSnake())
+        self.assertTrue(self.snake.snakeAndLadderBoard.checkSquareContainsSnake(14))
 
     def test_handle_snake_case(self):
-        self.snake.player.playerPosition = 14
-        self.snake.handleCaseWhenSquareContainsSnake()
-        self.assertEqual(self.snake.player.playerPosition, 7)
+        self.assertEqual(self.snake.snakeAndLadderBoard.getFallbackPostion(14), 7)
 

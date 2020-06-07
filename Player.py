@@ -10,3 +10,6 @@ class Player:
         if self.playerPosition > 100:
             return False
         return True
+
+    def setPlayerPosition(self, position):
+        self.playerPosition = position
