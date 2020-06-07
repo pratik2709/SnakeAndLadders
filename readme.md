@@ -1,2 +1,2 @@
-# run Game.py in the src directory to begin the game
-# uses pandas library as dependency
+run setup.py to begin the game
+uses pandas library as dependency
