@@ -22,16 +22,22 @@ class SnakesAndLadders:
         print("INITIAL PLAYER POSITION:" + str(self.player.playerPosition))
         self.player.movePlayer(self.dice.generateDieRoll())
         if self.gameOver():
-            print("GAME OVER")
-            return False
+            return self.handleGameOver()
         else:
-            if self.snakeAndLadderBoard.checkSquareContainsSnake(self.player.playerPosition):
-                print("SNAKE FOUND ON:" + str(self.player.playerPosition))
-                print(
-                    "MOVING TO:"
-                    + str(self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition)))
-                self.player.setPlayerPosition(
-                    self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition))
-            else:
-                print("MOVING TO:" + str(self.player.playerPosition))
-            return True
+            return self.handleNormalGame()
+
+    def handleNormalGame(self):
+        if self.snakeAndLadderBoard.checkSquareContainsSnake(self.player.playerPosition):
+            print("SNAKE FOUND ON:" + str(self.player.playerPosition))
+            print(
+                "MOVING TO:"
+                + str(self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition)))
+            self.player.setPlayerPosition(
+                self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition))
+        else:
+            print("MOVING TO:" + str(self.player.playerPosition))
+        return True
+
+    def handleGameOver(self):
+        print("GAME OVER")
+        return False
