@@ -7,6 +7,10 @@ class SnakesAndLadders:
     def __init__(self):
         self.snakeAndLadderBoard = SnakesAndLadderBoard()
         self.snakeAndLadderBoard.addSnake(14, 7)
+        self.snakeAndLadderBoard.addSnake(18, 1)
+        self.snakeAndLadderBoard.addSnake(6, 1)
+        self.snakeAndLadderBoard.addSnake(4, 1)
+        self.snakeAndLadderBoard.addSnake(2, 1)
         self.player = Player()
         self.turns = 0
         self.dice = Dice()
