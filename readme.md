@@ -1,2 +1,2 @@
-run setup.py to begin the game
-uses pandas library as dependency
+1. run setup.py to begin the game
+2. uses pandas library as dependency
