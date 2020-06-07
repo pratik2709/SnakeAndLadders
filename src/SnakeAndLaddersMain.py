@@ -21,13 +21,13 @@ class SnakesAndLadders:
         self.turns += 1
         print("TURN NUMBER:" + str(self.turns))
         print("INITIAL PLAYER POSITION:" + str(self.player.playerPosition))
-        self.player.movePlayer(self.dice.generateDieRoll())
         if self.gameOver():
             return self.handleGameOver()
         else:
             return self.handleNormalGame()
 
     def handleNormalGame(self):
+        self.player.movePlayer(self.dice.generateDieRoll())
         if self.snakeAndLadderBoard.checkSquareContainsSnake(self.player.playerPosition):
             print("ALERT!! SNAKE FOUND ON:" + str(self.player.playerPosition))
             print(
@@ -42,7 +42,6 @@ class SnakesAndLadders:
         return True
 
     def handleGameOver(self):
-        print("MOVING TO:" + str(self.player.playerPosition))
         print("GAME OVER")
         self.handleVisualBoard()
         return False
