@@ -1,5 +1,6 @@
 import unittest
 
+from Dice import Dice
 from SnakeAndLadders import SnakesAndLadders
 
 
@@ -15,21 +16,25 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.assertEqual(self.snake.positionTable[14]['fallback'],7)
 
     def test_random_number_range(self):
-        num = self.snake.generateRandomNumber()
+        self.snake.dice = Dice(1)
+        num = self.snake.dice.generateDieRoll()
         self.assertTrue(1 <= num <= 6)
 
     def test_even_random_number(self):
-        num = self.snake.generateEvenRandomNumber()
+        self.snake.dice = Dice(2)
+        num = self.snake.dice.generateDieRoll()
         self.assertTrue(num % 2 == 0)
 
     def test_even_random_number_range(self):
-        num = self.snake.generateEvenRandomNumber()
+        self.snake.dice = Dice(2)
+        num = self.snake.dice.generateDieRoll()
         self.assertTrue(2 <= num <= 6)
 
     def test_player_movement(self):
         # assuming testing only first move of the player
         initial = self.snake.playerPosition
-        self.snake.movePlayer(1)
+        self.snake.dice = Dice(2)
+        self.snake.movePlayer()
         self.assertNotEqual(initial, self.snake.playerPosition)
         self.assertTrue(initial < self.snake.playerPosition)
 

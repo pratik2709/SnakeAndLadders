@@ -1,5 +1,7 @@
 import random
 
+from Dice import Dice
+
 
 class SnakesAndLadders:
     def __init__(self):
@@ -8,6 +10,7 @@ class SnakesAndLadders:
         self.addSnake(14, 7)
         self.playerPosition = 0
         self.turns = 0
+        self.dice = None
 
     def intializePositionTable(self):
         for i in range(1,101):
@@ -19,19 +22,11 @@ class SnakesAndLadders:
     def addSnake(self, current_position, slip_position):
         self.positionTable[current_position]['fallback'] = slip_position
 
-    def generateRandomNumber(self):
-        return random.randint(1,6)
 
-    def generateEvenRandomNumber(self):
-        return random.randrange(2,7,2)
-
-    def movePlayer(self, fairness):
-        if fairness == 1:
-            random_number = self.generateRandomNumber()
-        else:
-            random_number = self.generateEvenRandomNumber()
-        print("DIE ROLLED IS:" + str(random_number))
-        self.playerPosition += random_number
+    def movePlayer(self):
+        number = self.dice.generateDieRoll()
+        print("DIE ROLLED IS:" + str(number))
+        self.playerPosition += number
 
     def checkIfInBounds(self):
         if self.playerPosition > 100:
@@ -52,9 +47,10 @@ class SnakesAndLadders:
         return False
 
     def playGame(self, fairness):
+        self.dice = Dice(fairness)
         self.turns += 1
         print("INITIAL PLAYER POSITION:" + str(self.playerPosition))
-        self.movePlayer(fairness)
+        self.movePlayer()
         if self.gameOver():
             print("GAME OVER")
             return False
