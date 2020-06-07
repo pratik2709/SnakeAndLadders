@@ -11,7 +11,7 @@ class SnakesAndLadders:
         self.addSnake(14, 7)
         self.player = Player()
         self.turns = 0
-        self.dice = None
+        self.dice = Dice()
 
     def intializePositionTable(self):
         for i in range(1,101):

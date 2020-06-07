@@ -16,7 +16,7 @@ class SnakesAndLaddersTest(unittest.TestCase):
         self.assertEqual(self.snake.positionTable[14]['fallback'],7)
 
     def test_random_number_range(self):
-        self.snake.dice = Dice(1)
+        self.snake.dice = Dice()
         num = self.snake.dice.generateDieRoll()
         self.assertTrue(1 <= num <= 6)
 

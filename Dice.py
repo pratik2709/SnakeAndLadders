@@ -3,7 +3,7 @@ from UnfairDice import UnFairDice
 
 
 class Dice:
-    def __init__(self, fair):
+    def __init__(self, fair=1):
         self.fair = fair
         self.caller = None
         self.setCaller()
