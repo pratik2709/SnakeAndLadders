@@ -34,10 +34,16 @@ class SnakesAndLadders:
                 + str(self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition)))
             self.player.setPlayerPosition(
                 self.snakeAndLadderBoard.getFallbackPostion(self.player.playerPosition))
+            self.handleVisualBoard()
         else:
             print("MOVING TO:" + str(self.player.playerPosition))
+            self.handleVisualBoard()
         return True
 
     def handleGameOver(self):
         print("GAME OVER")
+        self.handleVisualBoard()
         return False
+
+    def handleVisualBoard(self):
+        self.snakeAndLadderBoard.showPlayerPositionOnBoard(self.player.playerPosition)
