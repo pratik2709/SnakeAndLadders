@@ -29,7 +29,7 @@ class SnakesAndLaddersTest(unittest.TestCase):
     def test_player_movement(self):
         # assuming testing only first move of the player
         initial = self.snake.playerPosition
-        self.snake.movePlayer()
+        self.snake.movePlayer(1)
         self.assertNotEqual(initial, self.snake.playerPosition)
         self.assertTrue(initial < self.snake.playerPosition)
 

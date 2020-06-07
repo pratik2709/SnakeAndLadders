@@ -25,8 +25,11 @@ class SnakesAndLadders:
     def generateEvenRandomNumber(self):
         return random.randrange(2,7,2)
 
-    def movePlayer(self):
-        random_number = self.generateRandomNumber()
+    def movePlayer(self, fairness):
+        if fairness == 1:
+            random_number = self.generateRandomNumber()
+        else:
+            random_number = self.generateEvenRandomNumber()
         print("DIE ROLLED IS:" + str(random_number))
         self.playerPosition += random_number
 
@@ -48,10 +51,10 @@ class SnakesAndLadders:
             return True
         return False
 
-    def playGame(self):
+    def playGame(self, fairness):
         self.turns += 1
         print("INITIAL PLAYER POSITION:" + str(self.playerPosition))
-        self.movePlayer()
+        self.movePlayer(fairness)
         if self.gameOver():
             print("GAME OVER")
             return False

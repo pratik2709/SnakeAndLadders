@@ -5,9 +5,14 @@ def main():
     s = SnakesAndLadders()
     print("STARTING GAME...")
     while True:
-        num = input("Press any key to roll die::")
-        if num == "":
-            if not s.playGame():
+        num = input("Press 1 to roll normal die \n Press 2 to roll crooked die::")
+        if num == "1":
+            if not s.playGame(1):
+                break
+        else:
+            if not s.playGame(2):
                 break
 
 main()
+
+# key board press enter, escape to exit game
