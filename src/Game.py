@@ -5,6 +5,7 @@ class Game:
     def playSnakesAndLadders(self):
         snakeAndLadders = SnakesAndLadders()
         print("STARTING GAME...")
+        # command pattern ?
         while True:
             playerInput = input(" Press 1 to roll normal die \n Press 2 to roll crooked die\n "
                                 "Press q to quit::")
