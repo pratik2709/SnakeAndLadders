@@ -4,8 +4,8 @@ from src.Command import Command
 
 
 class UnFairDice(Command):
-    def __init__(self):
-        pass
+    def __init__(self, player):
+        self.player = player
 
     def execute(self):
-        return random.randrange(2, 7, 2)
+        self.player.movePlayer(random.randrange(2, 7, 2))
