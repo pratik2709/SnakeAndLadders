@@ -11,3 +11,10 @@ class PlayerInputRemote(object):
         # putting 4 slots in the player remote: Fair, unfair, quit and nocommand
         for i in range(1,5):
             self.commands.append(self.noCommand)
+
+    def setCommand(self, slot, command):
+        self.commands[slot] = command
+
+    def buttonPushed(self, slot):
+        print(self.commands)
+        return self.commands[slot].execute()

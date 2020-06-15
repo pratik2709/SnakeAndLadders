@@ -1,9 +1,11 @@
 import random
 
+from src.Command import Command
 
-class UnFairDice:
+
+class UnFairDice(Command):
     def __init__(self):
         pass
 
-    def generateRandomNumber(self):
+    def execute(self):
         return random.randrange(2, 7, 2)

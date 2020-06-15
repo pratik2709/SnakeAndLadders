@@ -1,4 +1,3 @@
-from src.Dice import Dice
 from src.Player import Player
 from src.SnakeAndLadderBoard import SnakesAndLadderBoard
 
@@ -13,25 +12,23 @@ class SnakesAndLadders:
         self.snakeAndLadderBoard.addSnake(2, 1)
         self.player = Player()
         self.turns = 0
-        self.dice = Dice()
 
     def gameOver(self):
         if not self.player.checkIfInBounds() or self.turns > 10:
             return True
         return False
 
-    def playGame(self, fairness=1):
-        self.dice = Dice(fairness)
+    def playGame(self, pos):
         self.turns += 1
         print("TURN NUMBER:" + str(self.turns))
         print("INITIAL PLAYER POSITION:" + str(self.player.playerPosition))
         if self.gameOver():
             return self.handleGameOver()
         else:
-            return self.handleNormalGame()
+            return self.handleNormalGame(pos)
 
-    def handleNormalGame(self):
-        self.player.movePlayer(self.dice.generateDieRoll())
+    def handleNormalGame(self, pos):
+        self.player.movePlayer(pos)
         if self.snakeAndLadderBoard.checkSquareContainsSnake(self.player.playerPosition):
             print("ALERT!! SNAKE FOUND ON:" + str(self.player.playerPosition))
             print(
