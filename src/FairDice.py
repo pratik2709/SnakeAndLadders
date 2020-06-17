@@ -14,3 +14,4 @@ class FairDice(Command):
 
     def execute(self):
         self.player.movePlayer(random.randint(1,6))
+
