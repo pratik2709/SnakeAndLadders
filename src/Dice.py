@@ -1,21 +1,18 @@
+import random
+
 from src.FairDice import FairDice
 from src.UnfairDice import UnFairDice
 
 
 class Dice:
-    def __init__(self, fair=1):
-        self.fair = fair
-        self.caller = None
-        self.setCaller()
+    def __init__(self, ):
+        pass
 
-    def setCaller(self):
-        if self.fair == 1:
-            self.caller = FairDice()
-        else:
-            self.caller = UnFairDice()
+    def even(self):
+        return random.randrange(2, 7, 2)
 
-    def generateDieRoll(self):
-        return self.caller.generateRandomNumber()
+    def odd(self):
+        return random.randint(1,6)
 
 
 
