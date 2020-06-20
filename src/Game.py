@@ -1,8 +1,9 @@
-from src.FairDice import FairDice
+from src.Dice import Dice
+from src.FairDiceCommand import FairDiceCommand
 from src.Player import Player
 from src.PlayerInputRemote import PlayerInputRemote
 from src.SnakeAndLaddersMain import SnakesAndLadders
-from src.UnfairDice import UnFairDice
+from src.UnfairDiceCommand import UnFairDiceCommand
 
 
 class Game:
@@ -10,8 +11,9 @@ class Game:
         playerInputRemote = PlayerInputRemote()
         player = Player()
         snakeAndLadders = SnakesAndLadders(player)
-        fairDice = FairDice(player)
-        unFairDice = UnFairDice(player)
+        dice = Dice()
+        fairDice = FairDiceCommand(dice)
+        unFairDice = UnFairDiceCommand(dice)
         playerInputRemote.setCommand(1,fairDice)
         playerInputRemote.setCommand(2,unFairDice)
 

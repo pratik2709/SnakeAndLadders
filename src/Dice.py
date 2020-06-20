@@ -1,8 +1,5 @@
 import random
 
-from src.FairDice import FairDice
-from src.UnfairDice import UnFairDice
-
 
 class Dice:
     def __init__(self, ):
